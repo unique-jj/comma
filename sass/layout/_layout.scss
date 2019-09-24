@@ -1,0 +1,242 @@
+/********************************** 회원가입S **********************************/
+.join{display:flex; justify-content:center; padding:100px 0px;
+	&.pc{padding-top:130px;}
+	/********************************** 태블릿 **********************************/
+	&.tablet{
+		.join__contents{width:518px;}
+		.essential__info{
+			.essential__input__section{
+				.id__check{top:19px;}
+				.pw__check{top:17px;}
+			}
+		}
+		form{
+			input{height:60px; line-height:60px;}
+		}
+		// 동의하기 버튼
+		.agree__btn{width:100%; height:75px; line-height:75px; background:#333; color:#fff; font-size:18px; margin-top:60px;}
+		.input__type--full{margin-bottom:40px;
+			// 밸리데이션 체크 머릿말 input
+			&.check__input{margin-bottom:40px;}
+			.select_btn{width:100%; float:none;}
+		}
+		.input__type--half{
+			input{width:254px;}
+			.select_btn{width:254px;}
+			&.address__search{margin-bottom:20px;
+				input{width:342px;}
+				button{width:166px; height:60px; border:1px solid #333; float:right; @include boxSizing; font-size:15px; background:#fff;}
+			}
+		}
+		.input__type--small{margin-bottom:40px;
+			input{width:166px;}
+			.last__btn{margin-right:0px;}
+		}
+		.select_btn{width:166px;
+			.select{height:60px; line-height:59px;
+				i{top:25px;}
+			}
+			.select_view{top:60px;}
+		}
+
+		/* 회원가입 선택사항*/
+		.choice__info{padding-top:20px;}
+
+		/* 회원가입 하단 버튼 */
+		.box__type01{width:166px;}
+
+		/* 이메일 input select */
+		.input__select{width:194px!important; margin-right:60px; border-right:0px; padding-right:0px;}
+		.input__select__btn{width:60px!important;
+			.mail__view{width:254px!important;}
+		}
+	}
+	/********************************** 태블릿 **********************************/
+	/********************************** 모바일 **********************************/
+	&.mobile{padding:6.6%;
+		.join__contents{width:100%;
+			.join__title__wrap{
+				.join__title{font-size:21px; padding-bottom:6%;}
+				.join__title__stage{
+					div{font-size:14px; padding:0px 20px;}
+					i{
+						width: 11px;
+						height: 19px;
+						position: absolute;
+						top: 8px;
+						right: -3px;
+						background-image: url(../image/icon_m.png);
+						background-repeat: no-repeat;
+						background-position: -6px -86px;
+					}
+				}
+			}
+		}
+	}
+	/********************************** 모바일 **********************************/
+	&__contents{width:638px;
+		/* 타이틀 */
+		.join__title__wrap{margin-bottom:45px;
+			.join__title{font-family:"helvetica"; font-size:42px; text-transform:uppercase; text-align:center; padding-bottom:30px;}
+			.join__title__stage{margin:0 auto; overflow:hidden; text-align:center; letter-spacing: -5px;
+				div{@include vertical; padding:0px 28px; color:#d4d4d4; position:relative;}
+				.active{color:#333; font-weight:bold;}
+				i{
+					width:7px;
+					height:13px;
+					position: absolute;
+					top:8px;
+					right:-3px;
+					@include sprite;
+					background-position: -6px -86px;
+				}
+			}
+		}
+		/* 필수사항 */
+		.essential__info{transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+			.essential__input__section{margin-bottom:50px;
+				/* 밸리데이션 체크 오류 */
+				.error__active{border:1px solid #e62e38;}
+				.input__message{color:$Basecolor-1; font-size:13px; transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96); clear:both; padding-top:0px;}
+				/* 밸리데이션 체크 아이콘 */
+				.id__check{
+					@include sprite;
+					background-position: 0px -34px;
+					position: absolute;
+					top: 14px;
+					right: 11px;
+					z-index: 10;
+					width: 24px;
+					height: 17px;
+					&.check__icon{background-position: 0px -4px;}
+				}
+				.pw__check{
+					@include sprite;
+					background-position: -34px -30px;
+					position: absolute;
+					top: 10px;
+					right: 15px;
+					z-index: 10;
+					width: 18px;
+					height: 25px;
+					&.check__icon{background-position: -34px 0px;}
+				}
+				.pw__checkpw{background-position: -62px -30px;
+					&.check__icon{background-position: -62px 0px;}
+				}
+				/* 매장 서치 폼 */
+				.search__form{float:left; position:relative;
+					.search__btn{
+						width:22px;
+						height:23px;
+						position: absolute;
+						top:13px;
+						right:26px;
+						@include sprite;
+						background-position: -85px -58px;
+					}
+				}
+			}
+		}
+		.join__btn__widget{width:100%; display:table; text-align:center;
+			.center__box{margin:0px 10px;}
+			input,button{float:left;}
+		}
+	}
+	/***** 회원가입 공통 ui ******/
+	form{
+		input{
+			font-size:16px;
+			height:48px;
+			line-height:48px;
+			border:1px solid $border-basic1;
+			padding:0px 15px;
+			transition: 0.3s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+		}
+	}
+	/* 서브 타이틀 */
+	.sub_title{
+		font-size:19px;
+		margin-bottom:20px;
+	}
+	/* 풀 input*/
+	.input__type--full{margin-bottom:30px; position:relative;
+		input{width:100%;}
+		textarea{width:100%; height:100px; font-size:16px; padding:15px; border:1px solid $border-basic1;}
+		.select_btn{width:100%;}
+	}
+	/* 하프 input*/
+	.input__type--half{width:100%; display:table; margin-bottom:30px; position:relative;
+		input{width:314px;
+			&:first-child{float:left;}
+			&:last-child{float:right;}
+		}
+	}
+	/* 3개 input */
+	.input__type--small{width:100%; display:table; margin-bottom:30px; position:relative;
+		input{
+			width:206px;
+			float:left;
+			margin-right:10px;
+		}
+		.shop__code{border:1px solid #a1a1a1!important;}
+		.last{margin-right:0px;}
+	}
+	/* 이메일 input select 공통 */
+	.input__select{width:264px!important; margin-right:50px; border-right:0px;}
+	.input__select__btn{position:absolute; top:0px; right:0px; width:50px; margin-right:0px; border-left:0px;
+		.main__select{border-left:0px; padding-left:0px;}
+		.mail__view{width:314px; right:0px; left:auto;}
+	}
+	/* 회원가입 완료 */
+	.join__complete{text-align:center;
+		h2{font-size:30px; font-weight:bold; font-family:"NotoBold";}
+		.complete__text{padding-top:40px;
+			.text__point{color:#8f8f8f;}
+		}
+		.indigo__box{width:270px; height:60px; line-height:60px; font-size:18px; margin-top:58px;}
+	}
+}
+/********************************** 회원가입E **********************************/
+
+/********************************** 로그인S **********************************/
+.login{
+	&__contents{background:url("../image/login_visual.jpg") 0 0 no-repeat; width:100%; height:100%; background-size:100% 100%; display:flex; justify-content:center; align-items:center;}
+	.login__input__wrap{width:335px; height:360px; padding:120px 108px; background:#fff;
+		h1{text-align:center; padding-bottom:30px;}
+		/* input */
+		.login__input{
+			input{width:333px; height:48px; font-size:16px; text-align:center; border:1px solid #8f8f8f;
+				&:first-child{margin-bottom:10px;}
+			}
+		}
+		/* 로그인 버튼 */
+		.indigo__box{width:335px; height:55px; line-height:54px; font-size:16px; margin-top:20px;}
+		/* 아이디 저장 */
+		.check__wrap{padding-top:17px;
+			input[type=checkbox]:checked+label:before{background-position: -90px 0px;}
+			label{font-size:14px;
+				&:before{width:18px; height:16px; background-position: -90px -16px; margin-right:10px; margin-top: -2px;}
+			}
+		}
+		/* 회원가입 , 아이디찾기 , 비밀번호 초기화 */
+		.user__link{padding-top:68px;
+			ul{text-align:center; letter-spacing:-5px;
+				li{@include vertical; font-size:14px; color:#8f8f8f; padding: 0px 10px; background:url("../image/line.jpg") right center no-repeat;
+					&.last{background:none;}
+					a{color: #8f8f8f; text-decoration:none;}
+				}
+			}
+		}
+
+	}
+}
+/********************************** 로그인E **********************************/
+
+/********************************** 고객조회Sss**********************************/
+.customer_view{
+	display:flex;
+	justify-content:center;
+	des{margin-bottom:10px; color:#333; font-size:14px;}
+}
+/********************************** 고객조회E **********************************/

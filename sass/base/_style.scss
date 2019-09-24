@@ -1,0 +1,252 @@
+@charset 'utf-8';
+
+@font-face {
+	font-family: "Noto";
+	font-style: normal;
+	src: url("../fonts/NotoSansCJKkr-Regular.otf") format("opentype"),
+	url("../fonts/NotoSansCJKkr-Regular.woff") format("woff");
+}
+@font-face {
+	font-family: "helvetica";
+	font-style: normal;
+	src: url("../fonts/HelveticaNeue-Heavy.otf") format("opentype");
+}
+@font-face {
+  font-family: "NotoBold";
+  font-style: normal;
+  src: url("../fonts/NotoSansCJKkr-Bold.otf") format("opentype"),
+  url("../fonts/NotoSansCJKkr-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "NotoMedi";
+  font-style: normal;
+  src: url("../fonts/NotoSansCJKkr-Medium.otf") format("opentype"),
+  url("../fonts/NotoSansCJKkr-Medium.woff") format("woff");
+}
+
+/*bg*/
+$base-color1:#000;
+/* font color */
+$fColor-1:#fff;
+$fColor-2:#000;
+/* s1 = small1 ~ */
+$fSize-s1:12px;
+$fSize-s2:14px;
+/* positioning */
+$re:relative;
+$ab:absolute;
+$fx:fixed;
+/* body bg class */
+$Basecolor-1:#e62e38; // 유효성체크
+$Basecolor-2:#950089;
+$Basecolor-3:#3b00ff;
+$Basecolor-4:#00a7ff;
+/* box style */
+.box__type01{width:183px; height:60px!important; font-size:16px;} // 회원가입 버튼
+
+.gray__box{background:#a1a1a1; color:#fff;}
+.indigo__box{background:#333; color:#fff;}
+/* border */
+$border-basic1:#a1a1a1;
+@mixin boxSizing() {
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-o-box-sizing:border-box;
+}
+
+@mixin vertical() {
+	vertical-align:middle;
+	display:inline-block;
+	letter-spacing:0px;
+}
+
+/* contents text shadow */
+@mixin textShadow(){
+	text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+@mixin titleShadow(){
+	text-shadow: 5px 5px 0px rgba(255, 255, 255, 0.3);
+}
+/* contents mobile text shadow */
+@mixin MobiletextShadow(){
+	text-shadow: 5px 5px 10px rgba(2, 75, 147, 0.3);
+}
+
+/* contents box shadow */
+@mixin boxShadow(){
+	box-shadow: 15px 15px 40px 0 rgba(0, 0, 0, 0.3);
+}
+
+// main text
+@mixin textEffect() {
+	background:-webkit-linear-gradient(left, #fa7268, #5f4b8b, #ffac27);
+	-webkit-background-clip:text;
+	-webkit-text-fill-color:transparent;
+	animation-duration:5s;
+	animation-name:textAnimate;
+	animation-iteration-count:infinite;
+	animation-fill-mode:forwards;
+}
+
+@mixin sprite(){
+  background-image:url(../image/icon_pc.png);
+  background-repeat:no-repeat;
+}
+
+// 셀렉트 버튼
+.select_btn{width:206px; float:left; cursor:pointer; margin-right:10px; position:relative;
+  /* pc 매장명 disabled */
+  .input__disabled{background:#dfdfdf; color:#a5a5a5; border:1px solid #dfdfdf;}
+  .select{height:48px; line-height:48px; border:1px solid $border-basic1; padding-left:15px; color:#bababa; @include boxSizing;
+    i{
+      background-image:url(../image/icon_pc.png);
+      background-repeat:no-repeat;
+      background-position:0px -64px;
+      position:absolute;
+      top:19px;
+      right:15px;
+      z-index:10;
+      width:20px;
+      height:11px;
+    }
+    .arrow_up{
+      i{background-position: -29px -64px;}
+    }
+  }
+  .select_view,.mail_view{width:100%; display:none; position:absolute; top:48px; left:0px; z-index:20; border:1px solid $border-basic1; border-top:0px; @include boxSizing; background:#fff; padding-left:15px;
+    li{padding:8px 0px;}
+  }
+}
+
+// 태블릿 셀렉트
+.tablet{
+  .select_btn{
+    .select{
+      i{right:20px;}
+    }
+  }
+}
+
+// 하프셀렉트
+.right__half{width:314px; float:right; margin-right:0px;}
+.left__half{width:314px; float:left; margin-right:0px;}
+.last_btn{margin-right:0px;}
+
+// 체크박스 커스텀
+.check__wrap{
+  &.check__essential{padding-bottom:30px; border-bottom:1px solid #e0e0e0;
+    .check__all--btn{margin:17px 0px 39px 0px;
+      &.all__checked{background:#00a44c;
+        label{border:1px solid #00a44c; color:#fff; font-size:18px;}
+      }
+      label{display:block; height:73px; line-height:73px; border:1px solid #000; text-align:center; font-size:18px;
+        &:before{display:none;}
+      }
+    }
+  }
+  &.check__choice{padding-top:30px;}
+  // 올 체크
+  .check__all{margin-bottom:50px;}
+  .check__column{margin-bottom:20px; font-size:18px; position:relative;}
+  // 마지막 칼럼
+  .last__column{margin-bottom:0px;}
+  // 마케팅 체크
+  .check__marketing{
+    .marketing__sms{@include vertical;}
+    .marketing__email{@include vertical; margin-left:20px;}
+    input[type="checkbox"]:checked + label:before{
+      @include sprite;
+      background-position:-32px -125px;
+    }
+    label:before{
+      @include vertical;
+      content:'';
+      width:30px;
+      height:30px;
+      @include sprite;
+      background-position:0px -125px;
+      cursor:pointer;
+      margin-right:15px;
+    }
+  }
+  input[type="checkbox"] { display:none; opacity: 0; filter: alpha(opacity=0); width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;}
+  input[type="checkbox"]:checked + label:before{
+
+    background-position:-59px -84px;
+    cursor:pointer;
+  }
+  label:before{
+    cursor:pointer;
+    @include vertical;
+    content:'';
+    width:37px;
+    height:36px;
+    @include sprite;
+    background-position:-20px -84px;
+    cursor:pointer;
+    margin-right:15px;
+  }
+  i{
+    width:11px;
+    height:19px;
+    position:absolute;
+    top:9px;
+    right:0px;
+    cursor:pointer;
+    @include sprite;
+    background-position:-6px -102px;
+    a{width:11px; height:19px;}
+  }
+}
+
+/* 팝업 */
+.layer__pop__widget{position:fixed; left:0; top:0; z-index:100;
+  .pop__bg{position:fixed; left:0; top:0; z-index:100; width:100%; height:100%; background:rgba(0,0,0,0.5); }
+  .popup__widget{position:fixed; left:50%; top:50%; z-index:200; background-color:#fff; transform: translate(-50%, -50%); padding:0px 14px; border-radius:8px;
+    /* 약관동의 팝업*/
+    &.consensual{width:602px;}
+    .popup__title{font-size:18px; height:18px; padding:30px 0px; text-align:center; border-bottom:1px solid #ccc; font-family:"NotoMedi"; font-weight:bold;}
+    .popup__contents{margin:30px 0px; padding:0px 15px;
+      /* 동의 팝업 */
+      &.terms{height:518px; overflow-y:scroll;}
+      .inner__contents{
+        > div{padding-bottom:30px;
+          h3{padding-bottom:18px;}
+        }
+        .last{padding-bottom:0px;}
+      }
+      .table__contents{
+        ul{width:100%; display:table;
+          li{display:table-cell; text-align:center; color:#8f8f8f;}
+        }
+        .table__head{height:59px; line-height:59px; border-top:1px solid #e7e7e7; border-bottom:1px solid #e7e7e7; margin-top:25px;}
+        .table__body{margin-top:30px; padding-bottom:30px; border-bottom:1px solid #e7e7e7;}
+      }
+    }
+  }
+  .close__btn{
+    display:block;
+    position:absolute;
+    top:28px;
+    right:15px;
+    width:23px;
+    height:23px;
+    line-height:26px;
+    text-align:center;
+    @include sprite;
+    background-position: -64px -125px;
+  }
+}
+
+/* 팝업 생성시 body class */
+body.scroll{overflow-y:hidden;}
+.scroll::-webkit-scrollbar {width:5px;}
+.scroll::-webkit-scrollbar-thumb {background-color: #b3b3b3; border-radius:20px;}
+
+/* 이메일 셀렉트 */
+.main__select{font-size:0px;}
+
+/* 동의하기 버튼 */
+.agree__btn{width:100%; height:75px; line-height:75px; background:#333; color:#fff; font-size:18px; margin-top:60px;}

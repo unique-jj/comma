@@ -1,0 +1,13 @@
+@charset 'utf-8';
+
+// base 
+@import
+	'base/style',
+	'base/base';
+// layout
+@import
+ 	'layout/layout';
+
+//pages
+@import
+ 	'pages/index';
