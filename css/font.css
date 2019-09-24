@@ -1,0 +1,45 @@
+@font-face {
+	font-family: "noto_thin";
+	font-style: normal;
+	src: url("../fonts/NotoSansKR-Thin.otf") format("opentype"), url("../fonts/NotoSansKR-Thin.woff") format("woff")
+}
+
+@font-face {
+	font-family: "noto_light";
+	font-style: normal;
+	src: url("../fonts/NotoSansKR-Light.otf") format("opentype"), url("../fonts/NotoSansKR-Light.woff") format("woff")
+}
+
+@font-face {
+	font-family: "noto";
+	font-style: normal;
+	src: url("../fonts/NotoSansKR-Regular.otf") format("opentype"), url("../fonts/NotoSansKR-Regular.woff") format("woff")
+}
+
+@font-face {
+	font-family: "noto_medi";
+	font-style: normal;
+	src: url("../fonts/NotoSansKR-Medium.otf") format("opentype"), url("../fonts/NotoSansKR-Medium.woff") format("woff")
+}
+
+@font-face {
+	font-family: "noto_bold";
+	font-style: normal;
+	font-weight: bold;
+	src: url("../fonts/NotoSansKR-Bold.otf") format("opentype"), url("../fonts/NotoSansKR-Bold.woff") format("woff")
+}
+
+@font-face {
+	font-family: "noto_black";
+	font-style: normal;
+	font-weight: bold;
+	src: url("../fonts/NotoSansKR-Black.otf") format("opentype"), url("../fonts/NotoSansKR-Black.woff") format("woff")
+}
+
+@font-face {
+	font-family: "helvetica";
+	font-style: normal;
+	src: url("../fonts/HelveticaNeue-Heavy.otf") format("opentype")
+}
+
+
